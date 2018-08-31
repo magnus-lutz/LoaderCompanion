@@ -1,6 +1,8 @@
-package de.magnus.serviceloader;
+package de.magnus.serviceloader.injectable;
 
 import com.google.auto.service.AutoService;
+import de.magnus.serviceloader.Injectable;
+import de.magnus.serviceloader.loaders.InjectableLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +13,7 @@ public class Test1Service implements Test1API{
     private Test2API test2Service;
 
     @Override
-    public void setup(ClassBasedInjectableLoader loader) {
+    public void setup(InjectableLoader loader) {
         test2Service = loader.load(Test2API.class);
     }
 
